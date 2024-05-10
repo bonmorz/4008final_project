@@ -1,0 +1,36 @@
+1.用scip来取代gurobi对于数据进行读取存储（gurobi有点太封闭了）
+
+2.是否要进行预先训练,为什么benchmark里的问题建模不包含训练好的数据？
+
+还是看一下开源代码里的数据怎么使用的吧，但是40.7mb能包含多少数据我暂时蒙在鼓里
+
+使用所有的可行解作为学习对象，而不单纯是最优解
+
+3.loss方程里需要什么？或者说我们直接用开源代码应该就行
+
+
+
+
+4. coefficient被encoded as feature，所以每个node的feature不一定只有1维
+
+5. 因为无论是变量还是限制条件都是nodes，所以我们需要把他们的feature合并起来，这样才能变成同样的节点
+
+
+#3.25
+1.get solutions for a problem
+2.get the data to produce a graph
+3.solve the graph to local
+
+4.节点已经设置完毕，现在的问题是如何处理边，边的话怎么对应
+
+5.边设置完毕，对于一个mip问题，有多个解
+
+6.已经成功设置一个graph_tuple，我们现在需要--》解压benchmark所有问题--》求解所有问题--》找到所有可行解--》存入graph——tuple--》用pickle导出
+
+4.5
+1.给每个问题设置了一个时间限制：600s，开始求解这些问题
+
+conda activate /Users/zixuanfang/anaconda3/envs/neuraldivingself
+/Users/zixuanfang/anaconda3/bin/conda install -p /Users/zixuanfang/anaconda3/envs/neuraldivingself jupyter -y
+
+
